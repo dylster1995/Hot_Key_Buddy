@@ -1,0 +1,58 @@
+* {
+text-align: center;
+background-color: rgba(81, 107, 148, 0.985);
+margin-right: 50px;
+margin-left: 50px;
+}
+
+h2, p {
+    background-color: white;
+}
+
+header {
+    background-color: white;
+    font-size: 60px;
+    font-family: cursive;
+}
+
+/*body {
+    background-color: rgb(219, 41, 41);
+    margin-top:2px;
+    
+}*/
+
+.title {
+    border-color: red;
+    border-width: 2rem;
+    padding: 40px;
+    background-color: white;
+    border-style:groove;
+    margin-bottom: 10px;
+}
+
+.text {
+    border-color: green;
+    border-width: 2rem;
+    background-color: white;
+    padding: 10px;
+    font-family: cursive;
+    border-style: groove;
+    margin-bottom: 10px;
+}
+
+.screen {
+    border-color:yellow;
+    border-width: 2rem;
+    font-size: 60px;
+    background-color:white;
+    border-style:groove;
+    margin-bottom: 10px;
+}
+
+.keyboard {
+    border-color:blue;
+    border-width: 2rem;
+    font-size: 60px;
+    background-color:white;
+    border-style:groove;
+}
