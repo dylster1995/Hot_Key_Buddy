@@ -23,11 +23,11 @@ function App() {
               element={<Login/>}
             />
              <Route 
-              path="/" 
+              path="/home" 
               element={<Home/>}
             />
             <Route 
-              path="/" 
+              path="/keyboard" 
               element={<Keyboard/>}
             />
             
