@@ -10,12 +10,33 @@ const resolvers = {
       }
 
       throw new AuthenticationError('Not logged in');
+
+    
     },
+    email: async () => {
+      return email.findOne({email: email})
+    }
+
+    
 
   },
   Mutation: {
+    addUsername: async (parent, { username }) => {
+      return username.create({username});
+    },
 
-  },
+    deleteUsername: async (parent, {username}) => {
+      return username.findOneAndDelete({})
+    },
+
+    addEmail: async (parent, { email }) => {
+      return username.create({email});
+    },
+
+    deleteUsername: async (parent, {email}) => {
+      return username.findOneAndDelete({})
+    },
+  }
 };
 
 module.exports = resolvers;
