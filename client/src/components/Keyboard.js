@@ -1,6 +1,7 @@
 import { Button } from "react-bootstrap";
 import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
+import "../styles/Keyboard.css"
 
 const Keyboard = () => {
   const [key, setKey] = useState("");
@@ -24,12 +25,12 @@ const Keyboard = () => {
 
   return (
     <>
-      <input type="text" onKeyDown={detectKeyDown} maxLength={1} value={key} />
-      <Button variant="primary" on onClick={saveKey}>
+      <input className="keyboard" type="text" onKeyDown={detectKeyDown} maxLength={1} value={key} />
+      <Button className="save-button" variant="primary" on onClick={saveKey}>
         Save
       </Button>
 
-      <div>
+      <div className ="screen">
         {keys.map((savedkey) => (
           <p>{savedkey}</p>
         ))}

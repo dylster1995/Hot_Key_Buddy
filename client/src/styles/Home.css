@@ -1,8 +1,8 @@
 * {
 text-align: center;
-background-color: rgb(77, 76, 76);
-margin-right: 50px;
-margin-left: 50px;
+background-color: white;
+margin-right: 60px;
+margin-left: 60px;
 }
 
 h2, p {
@@ -14,7 +14,9 @@ header {
     font-size: 60px;
     font-family: cursive;
 }
-
+body {
+    background-color: grey;
+}
 
 .title {
     border-color: red;
@@ -35,19 +37,23 @@ header {
     margin-bottom: 10px;
 }
 
-.screen {
-    border-color:yellow;
-    border-width: 2rem;
-    font-size: 60px;
-    background-color:white;
-    border-style:groove;
-    margin-bottom: 10px;
+#image {
+    height: 300px;
+    width: 800px;;
+
 }
 
-.keyboard {
+.home-screen {
     border-color:blue;
     border-width: 2rem;
     font-size: 60px;
     background-color:white;
-    border-style:groove;
+    border-style: groove;
+    margin-bottom: 10px;
+}
+
+.nav-container {
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
