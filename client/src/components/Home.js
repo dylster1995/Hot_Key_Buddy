@@ -1,26 +1,26 @@
-import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import '../styles/Home.css'
+import React, { useState } from "react";
+// import { Link } from "react-router-dom";
+// import Keyboard from "./Keyboard";
+import "../styles/Home.css";
+
 const Home = () => {
-  
   return (
     <>
-    <body>
-      <div className="title">
-        <header>Hot Key Buddy</header>
-      </div>
-      <div className="text">
-        <h2>
-          Type in the hot keys you'd like to save and they'll display in the
-          box bellow!
-        </h2>
-      </div>
-      <div className="screen">
-        <p>Display</p>
-      </div>
-      <div className="keyboard">
-        <p>Keyboard</p>
-      </div>
+      <body>
+        <div className="title">
+          <header>Hot Key Buddy</header>
+        </div>
+        <div className="text">
+          <h2>
+           Welcome to Hot Key Buddy! Enter the combination of keys you want to save and store them for later.  
+          </h2>
+        </div>
+        <div className="screen">
+          <p>Display</p>
+        </div>
+        <div className="keyboard">
+          <p>Keyboard</p>
+        </div>
       </body>
     </>
   );
