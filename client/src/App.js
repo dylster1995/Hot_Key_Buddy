@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Tabs from './components/Tabs';
 import Home from './components/Home';
 import Keyboard from './components/Keyboard';
+import Footer from './components/Footer';
 
 
 
@@ -18,23 +19,14 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-        <Tabs />
+          <Tabs />
           <Routes>
-            <Route 
-              path="/" 
-              element={<Login/>}
-            />
-             <Route 
-              path="/home" 
-              element={<Home/>}
-            />
-            <Route 
-              path="/keyboard" 
-              element={<Keyboard/>}
-            />
-            
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/keyboard" element={<Keyboard />} />
           </Routes>
-          </>
+          <Footer />
+        </>
       </Router>
     </ApolloProvider>
   );
