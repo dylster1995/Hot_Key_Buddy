@@ -1,6 +1,6 @@
 * {
 text-align: center;
-background-color: rgba(81, 107, 148, 0.985);
+background-color: rgb(77, 76, 76);
 margin-right: 50px;
 margin-left: 50px;
 }
@@ -15,16 +15,11 @@ header {
     font-family: cursive;
 }
 
-/*body {
-    background-color: rgb(219, 41, 41);
-    margin-top:2px;
-    
-}*/
 
 .title {
     border-color: red;
     border-width: 2rem;
-    padding: 40px;
+    padding: 20px;
     background-color: white;
     border-style:groove;
     margin-bottom: 10px;
