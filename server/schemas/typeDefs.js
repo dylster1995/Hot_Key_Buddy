@@ -12,6 +12,7 @@ const typeDefs = gql`
     email: String!
     password: String!
     games: [Game]
+    keyBinds: [Bind]
   }
 
   type Game {
@@ -20,6 +21,11 @@ const typeDefs = gql`
     profile: String
   }
 
+  type Bind {
+    _id: ID!
+    keyBind: String!
+    binding: String!
+  }
   type Query {
     readUser(_id: ID!): User
     readUsers: [User]
@@ -34,6 +40,7 @@ const typeDefs = gql`
     createGame(title: String!, profile: String): Game
     updateGame(title: String!, profile: String): Game
     deleteGame(_id: ID!): Game
+    createBind(keyBind: String!, binding:String!)
   }
 `;
 

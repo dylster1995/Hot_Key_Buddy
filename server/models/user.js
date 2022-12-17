@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 const {Game} = require("./game");
+const bindingScheme = require("./bindings");
 
 const UserSchema = new Schema(
   {
@@ -22,7 +23,8 @@ const UserSchema = new Schema(
     },
     games: {
       type: [],
-    }
+    },
+    keyBinds: [bindingScheme]    
   },
   {
     toJSON: {

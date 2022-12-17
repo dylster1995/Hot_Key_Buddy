@@ -1,5 +1,6 @@
 const { User } = require('../models/user');
 const { Game } = require('../models/game');
+const bindingScheme = require('../models/bindings');
 
 const resolvers = {
   Query: {
@@ -63,6 +64,12 @@ const resolvers = {
     deleteGame: async (parent, args) => {
       return Game.findOneAndDelete({_id: args.id})
     },
+    createBind: async (parent, args) => {
+      return bindingScheme.create({
+        keyBind: args.keyBind,
+        Binding: args.binding
+      })
+    }
   }
 };
 {
