@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import Login from './components/Login'
+import Login from './components/Login';
+import Tabs from './components/Tabs';
 import Home from './components/Home';
 import Keyboard from './components/Keyboard';
+import Footer from './components/Footer';
 
 
 
@@ -16,23 +18,15 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="">
+        <>
+          <Tabs />
           <Routes>
-            <Route 
-              path="/" 
-              element={<Login/>}
-            />
-             <Route 
-              path="/home" 
-              element={<Home/>}
-            />
-            <Route 
-              path="/keyboard" 
-              element={<Keyboard/>}
-            />
-            
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/keyboard" element={<Keyboard />} />
           </Routes>
-        </div>
+          <Footer />
+        </>
       </Router>
     </ApolloProvider>
   );

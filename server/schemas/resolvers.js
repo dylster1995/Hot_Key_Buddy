@@ -1,5 +1,6 @@
 const { User } = require('../models/user');
 const { Game } = require('../models/game');
+const bindingScheme = require('../models/bindings');
 
 const resolvers = {
   Query: {
@@ -89,12 +90,20 @@ const resolvers = {
     deleteGame: async (parent, args) => {
       return await Game.findOneAndDelete({ _id: args._id })
     },
+<<<<<<< HEAD
     // remove these last two. Only for development
     deleteGames: async () => {
       return await Game.deleteMany({});
     },
     deleteUsers: async () => {
       return await User.deleteMany({});
+=======
+    createBind: async (parent, args) => {
+      return bindingScheme.create({
+        keyBind: args.keyBind,
+        Binding: args.binding
+      })
+>>>>>>> 198f4ad3193fa135ec8b3556d532cf3ec4ed11aa
     }
   }
 };

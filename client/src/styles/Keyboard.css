@@ -1,0 +1,19 @@
+.screen {
+    border-color:yellow;
+    border-width: 2rem;
+    font-size: 60px;
+    background-color:white;
+    border-style:groove;
+    margin-bottom: 10px;
+}
+
+
+.keyboard {
+    border-color:blue;
+    border-width: 1rem;
+    font-size: 60px;
+    background-color:white;
+    border-style:groove;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
