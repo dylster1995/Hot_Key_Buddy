@@ -49,8 +49,8 @@ const resolvers = {
       });
     },
     // update an existing user, to rehash a password we must call the .save method
-    updateUser: async (parent, args) => {
-      const user = await User.findById({ _id: args._id },(err, result) => {
+    updateUser: (parent, args) => {
+      const user = User.findById({ _id: args._id },(err, result) => {
         if (err){
           console.error(err);
           return err;
@@ -62,9 +62,8 @@ const resolvers = {
           password: args.password,
         });
         result.save().
-        then(()=> console.log(result))
+        then(()=> console.log('successfully edited user info'))
       });
-      return user;
     },
     // delete an existing user 
     deleteUser: async (parent, args) => {
@@ -90,20 +89,11 @@ const resolvers = {
     deleteGame: async (parent, args) => {
       return await Game.findOneAndDelete({ _id: args._id })
     },
-<<<<<<< HEAD
-    // remove these last two. Only for development
-    deleteGames: async () => {
-      return await Game.deleteMany({});
-    },
-    deleteUsers: async () => {
-      return await User.deleteMany({});
-=======
     createBind: async (parent, args) => {
       return bindingScheme.create({
         keyBind: args.keyBind,
         Binding: args.binding
       })
->>>>>>> 198f4ad3193fa135ec8b3556d532cf3ec4ed11aa
     }
   }
 };

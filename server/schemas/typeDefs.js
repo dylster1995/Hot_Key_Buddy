@@ -6,11 +6,8 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
-<<<<<<< HEAD
-=======
     games: [Game]
     keyBinds: [Bind]
->>>>>>> 198f4ad3193fa135ec8b3556d532cf3ec4ed11aa
   }
 
   type Game {
@@ -40,18 +37,8 @@ const typeDefs = gql`
     createGame(title: String!, profile: String!, user_id: ID!): Game
     updateGame(title: String!, profile: String!, _id: ID!): Game
     deleteGame(_id: ID!): Game
-<<<<<<< HEAD
-    deleteGames: Game
-    deleteUsers: User
-=======
-    createBind(keyBind: String!, binding:String!)
->>>>>>> 198f4ad3193fa135ec8b3556d532cf3ec4ed11aa
+    createBind(keyBind: String!, binding:String!): Bind
   }
 `;
 
 module.exports = typeDefs;
-
-// input GamesInput {
-//   title: String!
-//   profile: String
-// }
