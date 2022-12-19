@@ -5,16 +5,10 @@ const bindingScheme = require("./bindings");
 
 const UserSchema = new Schema(
   {
-    username: {
-      type: String,
-      unique: true,
-      trim: true,
-      required: "Username is Required",
-    },
     email: {
       type: String,
       unique: true,
-      required: "Username is Required",
+      required: "Email is Required",
       match: [/.+@.+\..+/],
     },
     password: {
