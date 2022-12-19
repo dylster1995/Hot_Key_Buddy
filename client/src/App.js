@@ -43,6 +43,7 @@ function App() {
         <>
           <Tabs />
           <Routes>
+            <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Dashboard />} />
             <Route path="/keyboard" element={<Keyboard />} />

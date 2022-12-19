@@ -79,7 +79,7 @@ const Login = () => {
         />
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
-        </Form.Text>
+        </Form.Text> */
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -93,10 +93,15 @@ const Login = () => {
             required
           />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="info" type="submit">
+      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        {/* <Form.Check type="checkbox" label="Check me out" /> */}
+      {/* </Form.Group> */} 
+      <Form.Control.Feedback type="invalid">
+            Password is required!
+          </Form.Control.Feedback>
+      <Button  
+      disabled={!(userData.email && userData.password)}
+        variant="info" type="submit">
         Submit
       </Button>
       <br></br>

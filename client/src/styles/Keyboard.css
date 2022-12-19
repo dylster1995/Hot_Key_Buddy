@@ -1,5 +1,5 @@
 .screen {
-    border-color:yellow;
+    padding: 10px;
     border-width: 2rem;
     font-size: 60px;
     background-color:white;
@@ -7,9 +7,8 @@
     margin-bottom: 10px;
 }
 
-
-.keyboard {
-    border-color:blue;
+.input-one{
+    
     border-width: 1rem;
     font-size: 60px;
     background-color:white;
