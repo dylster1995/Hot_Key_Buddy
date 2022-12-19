@@ -26,6 +26,17 @@ const typeDefs = gql`
     keyBind: String!
     binding: String!
   }
+
+  type Auth {
+    token: ID!
+    user: User
+  }
+
+  input  {
+
+
+  }
+
   type Query {
     readUser(_id: ID!): User
     readUsers: [User]
@@ -40,7 +51,7 @@ const typeDefs = gql`
     createGame(title: String!, profile: String): Game
     updateGame(title: String!, profile: String): Game
     deleteGame(_id: ID!): Game
-    createBind(keyBind: String!, binding:String!)
+    createBind(keyBind: String!, binding:String!):Bind
   }
 `;
 
