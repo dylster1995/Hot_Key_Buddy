@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../styles/Login.css"
 
-const Login = () => {
+const Signup = () => {
   
   return (
     <>
@@ -25,11 +25,12 @@ const Login = () => {
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
       <Button variant="info" type="submit">
-        Submit
+        Sign Up!
       </Button>
       <br></br>
+      <p>Already have an account?</p>
       <Button variant="info" type="submit">
-        <a href="/signup">Create Account</a>
+        Sign In
       </Button>
     </Form>
     </div>
@@ -37,4 +38,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
