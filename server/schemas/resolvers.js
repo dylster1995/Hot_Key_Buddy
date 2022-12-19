@@ -4,22 +4,39 @@ const bindingScheme = require('../models/bindings');
 
 const resolvers = {
   Query: {
-    readUser: async (parent, args, context) => {
-      if (context.user) {
-        return await User.findOne({ _id: context.user._id }).select('-__v -password');
+    // get single user info by id but don't return the password hash
+    readUser: async (parent, args) => {
+      if (args._id) {
+        return await User.findOne( { _id: args._id } ).select('-__v -password');//.select('-__v -password');
       }
-
-      throw new AuthenticationError('Not logged in');
+      return('Not logged in');
     },
-    readUsers: async (parent, args) => {
-      return User.find({});
+    // get all users in the database without their passwords
+    readUsers: async () => {
+      return await User.find({}).select('-__v -password');
     },
+    // get one game by title 
     readGame: async (parent, args) => {
-      return Game.findOne({title: args.title});
+      return await Game.findOne({ _id: args._id });
     },
-
-    readGames: async () => {
-      return Game.find({})
+    // get all games of a user
+    readGames: async (parent, args) => {
+      return await Game.find({ user_id: args.user_id })
+    },
+    // check if a user is allowed to login. Returns boolean
+    login: async (parent, args) => {
+      // find an existing user by id
+      const user = await User.findOne({ email: args.email })
+      if (!user){
+        // user does not exist!
+        return { message: "No user found with that email!"};
+      }
+      // user exists, now check password for authentication
+      if( await user.isCorrectPassword(args.password) ){
+        return user;
+      } else {
+        return { message: "Wrong email or password!" };
+      }
     }
   },
   //may need to add const user and const token to create in db
@@ -28,47 +45,54 @@ const resolvers = {
   //const token
 
   Mutation: {
-    //add password
+    // create a new user
     createUser: async (parent, args) => {
-      return User.create({
+      return await User.create({
         username: args.username,
         email: args.email,
         password: args.password,
-        games: [...args.games]
       });
     },
-    updateUser: async (parent, args) => {
-      return User.updateOne({
-        _id: args.id
-      },
-      {
-        username: args.username,
-        email: args.email,
-        password: args.password,
-        games: [...args.games]
+    // update an existing user, to rehash a password we must call the .save method
+    updateUser: (parent, args) => {
+      const user = User.findById({ _id: args._id },(err, result) => {
+        if (err){
+          console.error(err);
+          return err;
+        }
+        Object.assign(result,
+        {
+          username: args.username,
+          email: args.email,
+          password: args.password,
+        });
+        result.save().
+        then(()=> console.log('successfully edited user info'))
       });
     },
+    // delete an existing user 
     deleteUser: async (parent, args) => {
-      return User.findOneAndDelete({_id:args.id})
+      return await User.findOneAndDelete({ _id: args._id })
     },
-
+    // create a new game under a specific user
     createGame: async (parent, args) => {
-      return Game.create({
+      return await Game.create({
         title: args.title,
-        profile: args.profile
+        profile: args.profile,
+        user_id: args.user_id
       });
     },
+    // update an existing game under a specific user
     updateGame: async (parent, args) => {
-      return Game.updateOne({
-        _id: args.id
-      },
+      return await Game.updateOne({ _id: args._id },
       {
         title: args.title,
-        profile: args.profile
+        profile: args.profile,
       });
     },
+    // delete an existing game 
     deleteGame: async (parent, args) => {
-      return Game.findOneAndDelete({_id: args.id})
+      return await Game.findOneAndDelete({ _id: args._id })
     },
     createBind: async (parent, args) => {
       return bindingScheme.create({
@@ -78,41 +102,5 @@ const resolvers = {
     }
   }
 };
-// {
-// const resolvers = {
-//   Query: {
-//     me: async (parent, args, context) => {
-//       if (context.user) {
-//         const userData = await User.findOne({ _id: context.user._id }).select('-__v -password');
 
-//         return userData;
-//       }
-
-//       throw new AuthenticationError('Not logged in');
-//     },
-
-//     email: async () => {
-//       return email.findOne({email: email})
-//     }
-//   },
-//   Mutation: {
-//     addUsername: async (parent, { username }) => {
-//       return username.create({username});
-//     },
-
-//     deleteUsername: async (parent, {username}) => {
-//       return username.findOneAndDelete({})
-//     },
-
-//     addEmail: async (parent, { email }) => {
-//       return username.create({email});
-//     },
-
-//     deleteUsername: async (parent, {email}) => {
-//       return username.findOneAndDelete({})
-//     },
-//   }
-// };
-// }
 module.exports = resolvers;
-

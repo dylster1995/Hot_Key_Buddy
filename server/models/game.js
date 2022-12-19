@@ -4,7 +4,6 @@ const GameSchema = new Schema(
   {
     title: {
       type: String,
-      unique: true,
       trim: true,
       required: "Title is Required",
     },
@@ -12,6 +11,9 @@ const GameSchema = new Schema(
     profile: {
       type: Object,
     },
+    user_id: {
+      type: String
+    }
   },
 );
 

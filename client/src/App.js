@@ -7,6 +7,7 @@ import Tabs from './components/Tabs';
 import Home from './components/Home';
 import Keyboard from './components/Keyboard';
 import Footer from './components/Footer';
+import Signup from './components/Signup';
 
 
 // Construct our main GraphQL API endpoint
@@ -42,6 +43,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
             <Route path="/keyboard" element={<Keyboard />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
           <Footer />
         </>
