@@ -1,6 +1,7 @@
 const { User } = require('../models/user');
 const { Game } = require('../models/game');
 const bindingScheme = require('../models/bindings');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -32,32 +33,36 @@ const resolvers = {
   Mutation: {
     // create a new user
     createUser: async (parent, args) => {
-      return await User.create({
-        username: args.username,
+      const user = await User.create({
         email: args.email,
         password: args.password,
       });
+      const token = signToken(user);
+      return {token, user};
     },
     // update an existing user, to rehash a password we must call the .save method
-    updateUser: (parent, args) => {
-      const user = User.findById({ _id: args._id },(err, result) => {
+    updateUser: async (parent, args) => {
+      const user = await User.findById({ _id: args._id }, async (err, result) => {
         if (err){
           console.error(err);
           return err;
         }
+        // if the user didn't send data fill it in with their existing data
+        args.email = args.email ? args.email : user.email;
+        args.password = args.password ? args.password : user.password;
         Object.assign(result,
         {
-          username: args.username,
           email: args.email,
           password: args.password,
         });
-        result.save().
-        then(()=> console.log('successfully edited user info'))
+        await result.save();
       });
+      return user;
     },
     // delete an existing user 
     deleteUser: async (parent, args) => {
-      return await User.findOneAndDelete({ _id: args._id })
+      await Game.deleteMany( {user_id: args._id} );
+      return await User.findOneAndDelete({ _id: args._id });
     },
     // create a new game under a specific user
     createGame: async (parent, args) => {
@@ -88,14 +93,15 @@ const resolvers = {
     // check if a user is allowed to login. Returns boolean
     login: async (parent, args) => {
       // find an existing user by id
-      const user = await User.findOne({ email: args.email })
+      const user = await User.findOne({ email: args.email });
       if (!user){
         // user does not exist!
         return { message: "No user found with that email!"};
       }
       // user exists, now check password for authentication
       if( await user.isCorrectPassword(args.password) ){
-        return user;
+        const token = signToken(user);
+        return {token, user};
       } else {
         return { message: "Wrong email or password!" };
       }

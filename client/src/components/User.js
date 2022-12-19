@@ -3,17 +3,17 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../styles/Login.css"
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import { UPDATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import {Alert} from 'react-bootstrap';
 
-const Login = () => {
+const User = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [userData, setUserData] = useState({email: '', password: ''});
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [updateUser, { error }] = useMutation(UPDATE_USER);
 
   useEffect(() => {
     if (error) {
@@ -38,12 +38,12 @@ const Login = () => {
     }
 
     try {
-      const { data } = await login({
+      const { data } = await updateUser({
         variables: { ...userFormData },
       });
 
       console.log(data);
-      Auth.login(data.login.token, data.login.user._id);
+      Auth.login(data.updateUser.token, data.updateUser._id);
     } catch (e) {
       console.error(e);
     }
@@ -58,6 +58,7 @@ const Login = () => {
   return (
     <>
     <div className="login-form">
+        <h1>User Settings</h1>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
       <Alert
           dismissible
@@ -71,7 +72,7 @@ const Login = () => {
         <Form.Label>Email address</Form.Label>
         <Form.Control 
           type="text"
-          placeholder="Enter email"
+          placeholder="Email"
           name="email"
           onChange={handleInputChange}
           value={userFormData.email}
@@ -100,11 +101,10 @@ const Login = () => {
         Submit
       </Button>
       <br></br>
-      <p>Not a member?<br></br> <a href="/signup">Sign Up!</a></p>
     </Form>
     </div>
     </>
   );
 };
 
-export default Login;
+export default User;
