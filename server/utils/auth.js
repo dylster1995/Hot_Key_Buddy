@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 
-//pass in .env file to secret
 const secret = 'hkb_key';
 const expiration = '2h';
 

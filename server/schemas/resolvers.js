@@ -1,6 +1,7 @@
 const { User } = require('../models/user');
 const { Game } = require('../models/game');
 const bindingScheme = require('../models/bindings');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -53,6 +54,22 @@ const resolvers = {
         password: args.password,
       });
     },
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(user);
+      return { token, user };
+    },
     // update an existing user, to rehash a password we must call the .save method
     updateUser: (parent, args) => {
       const user = User.findById({ _id: args._id },(err, result) => {
@@ -71,7 +88,7 @@ const resolvers = {
       });
     },
     // delete an existing user 
-    deleteUser: async (parent, args) => {
+    deleteUser: async (parent, {user_id}, context) => {
       return await User.findOneAndDelete({ _id: args._id })
     },
     // create a new game under a specific user

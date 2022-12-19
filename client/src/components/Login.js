@@ -1,18 +1,18 @@
-// import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../styles/Login.css"
 import { useMutation } from '@apollo/client';
-import {  } from '../utils/mutations';
+// import { LOGIN_USER } from '../';
 import Auth from '../utils/auth';
 
 const Login = () => {
 
-  const [userData, setUserData] = useState({email: '', password: ''})
+  const [userData, setUserData] = useState({email: '', password: ''});
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const [login, { error }] = useMutation(LOGIN_USER);
+  // const [login, { error }] = useMutation(LOGIN_USER);
 
   useEffect(() => {
     if (error) {
