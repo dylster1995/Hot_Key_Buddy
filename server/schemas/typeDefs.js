@@ -27,10 +27,6 @@ const typeDefs = gql`
     user: User
   }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6991110bc5a2355e2d19e5e235acb787214304be
   type Query {
     readUser(_id: ID!): User
     readUsers: [User]

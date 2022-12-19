@@ -59,18 +59,6 @@ const Login = () => {
     <>
     <div className="login-form">
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-<<<<<<< HEAD
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label htmlFor="email">Email address</Form.Label>
-        <Form.Control  
-            type="text"
-            placeholder="Your email"
-            name="email"
-            onChange={handleInputChange}
-            value={userData.email}
-            required />
-        {/* <Form.Text className="text-muted">
-=======
       <Alert
           dismissible
           onClose={() => setShowAlert(false)}
@@ -90,31 +78,20 @@ const Login = () => {
           required
         />
         <Form.Text className="text-muted">
->>>>>>> 6991110bc5a2355e2d19e5e235acb787214304be
           We'll never share your email with anyone else.
-        </Form.Text> */}
+        </Form.Text> */
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-<<<<<<< HEAD
-        <Form.Label htmlFor="password">Password</Form.Label>
-        <Form.Control   
-=======
         <Form.Label>Password</Form.Label>
         <Form.Control
->>>>>>> 6991110bc5a2355e2d19e5e235acb787214304be
             type="password"
             placeholder="Your password"
             name="password"
             onChange={handleInputChange}
-<<<<<<< HEAD
-            value={userData.password}
-            required/>
-=======
             value={userFormData.password}
             required
           />
->>>>>>> 6991110bc5a2355e2d19e5e235acb787214304be
       </Form.Group>
       {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
         {/* <Form.Check type="checkbox" label="Check me out" /> */}

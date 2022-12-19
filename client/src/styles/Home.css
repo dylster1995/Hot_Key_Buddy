@@ -1,17 +1,17 @@
 * {
 text-align: center;
 background-color: white;
-margin-right: 70px;
-margin-left: 70px;
+margin-right: 55px;
+margin-left: 55px;
 }
 
 h2, p {
-    background-color: rgb(42, 144, 227);
+    background-color: white;
     padding: 2%
 }
 
 header {
-    background-color: rgb(42, 144, 227);
+    background-color: white;
     font-size: 60px;
     font-family: cursive;
 }
