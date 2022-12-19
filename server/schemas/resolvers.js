@@ -23,21 +23,6 @@ const resolvers = {
     readGames: async (parent, args) => {
       return await Game.find({ user_id: args.user_id })
     },
-    // check if a user is allowed to login. Returns boolean
-    login: async (parent, args) => {
-      // find an existing user by id
-      const user = await User.findOne({ email: args.email })
-      if (!user){
-        // user does not exist!
-        return { message: "No user found with that email!"};
-      }
-      // user exists, now check password for authentication
-      if( await user.isCorrectPassword(args.password) ){
-        return user;
-      } else {
-        return { message: "Wrong email or password!" };
-      }
-    }
   },
   //may need to add const user and const token to create in db
   //write a login function to findone by email
@@ -99,6 +84,21 @@ const resolvers = {
         keyBind: args.keyBind,
         Binding: args.binding
       })
+    },
+    // check if a user is allowed to login. Returns boolean
+    login: async (parent, args) => {
+      // find an existing user by id
+      const user = await User.findOne({ email: args.email })
+      if (!user){
+        // user does not exist!
+        return { message: "No user found with that email!"};
+      }
+      // user exists, now check password for authentication
+      if( await user.isCorrectPassword(args.password) ){
+        return user;
+      } else {
+        return { message: "Wrong email or password!" };
+      }
     }
   }
 };

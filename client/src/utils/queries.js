@@ -27,12 +27,4 @@ query getGames($user_id: ID!){
 }
 `;
 
-export const LOGIN_USER = gql`
-query getUser($id: ID!){
-  readUser(_id: $id) {
-    _id
-    username
-    email
-  }
-}
-`;
+

@@ -38,7 +38,6 @@ const typeDefs = gql`
     readUsers: [User]
     readGame(_id: ID!): Game
     readGames(user_id: ID!): [Game]
-    login(email: String!, password: String!): User!
   }
 
   type Mutation {
@@ -49,6 +48,7 @@ const typeDefs = gql`
     updateGame(title: String!, profile: String!, _id: ID!): Game
     deleteGame(_id: ID!): Game
     createBind(keyBind: String!, binding:String!): Bind
+    login(email: String!, password: String!): User!
   }
 `;
 

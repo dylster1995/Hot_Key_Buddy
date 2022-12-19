@@ -56,3 +56,13 @@ mutation removeGame($id: ID!){
   }
 }
 `;
+
+export const LOGIN_USER = gql`
+mutation getUser($id: ID!){
+  readUser(_id: $id) {
+    _id
+    username
+    email
+  }
+}
+`;

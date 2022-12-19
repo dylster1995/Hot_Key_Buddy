@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../styles/Login.css"
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/queries';
+import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Login = () => {
@@ -78,7 +78,7 @@ const Login = () => {
       </Button>
       <br></br>
       <Button variant="info" type="submit">
-        <a href="/signup">Create Account</a>
+        Create Account
       </Button>
     </Form>
     </div>
