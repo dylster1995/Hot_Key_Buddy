@@ -27,7 +27,7 @@ query getGames($user_id: ID!){
 }
 `;
 
-export const QUERY_LOGIN = gql`
+export const LOGIN_USER = gql`
 query getUser($id: ID!){
   readUser(_id: $id) {
     _id
