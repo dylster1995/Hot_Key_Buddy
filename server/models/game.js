@@ -10,13 +10,11 @@ const GameSchema = new Schema(
 
     profile: {
       type: Object,
-    },
-    user_id: {
-      type: String
     }
+
   },
 );
 
-const Game = model("Game", GameSchema);
+// const Game = model("Game", GameSchema);
 
-module.exports = {Game};
+module.exports =  GameSchema ;

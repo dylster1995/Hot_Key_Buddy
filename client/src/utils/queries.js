@@ -1,9 +1,20 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_READ_USER = gql`
-query getUser($id: ID!){
-  readUser(_id: $id) {
+query Query {
+  readUser {
+    _id
     email
+    games {
+      _id
+      profile
+      title
+    }
+    keyBinds {
+      _id
+      binding
+      keyBind
+    }
   }
 }
 `;

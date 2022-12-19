@@ -1,16 +1,17 @@
-const { User } = require('../models/user');
-const { Game } = require('../models/game');
+const { User } = require('../models');
+const {AuthenticationError} = require('apollo-server-express')
 const bindingScheme = require('../models/bindings');
 const { signToken } = require('../utils/auth');
+
 
 const resolvers = {
   Query: {
     // get single user info by id but don't return the password hash
-    readUser: async (parent, args) => {
-      if (args._id) {
-        return await User.findOne( { _id: args._id } ).select('-__v -password');//.select('-__v -password');
+    readUser: async (parent, args, context) => {
+      if (context.user) {
+        return await User.findOne( { _id: context.user._id} );//.select('-__v -password');
       }
-      return('Not logged in');
+      throw new AuthenticationError('not logged in');
     },
     // get all users in the database without their passwords
     readUsers: async () => {
@@ -21,9 +22,12 @@ const resolvers = {
       return await Game.findOne({ _id: args._id });
     },
     // get all games of a user
-    readGames: async (parent, args) => {
-      return await Game.find({ user_id: args.user_id })
-    },
+//     readGames: async (parent, args, context) => {
+// if(context.user){
+//   const gamesData =  await Game.find()
+//  return gamesData
+// }
+//     },
   },
   //may need to add const user and const token to create in db
   //write a login function to findone by email
@@ -65,12 +69,18 @@ const resolvers = {
       return await User.findOneAndDelete({ _id: args._id });
     },
     // create a new game under a specific user
-    createGame: async (parent, args) => {
-      return await Game.create({
-        title: args.title,
-        profile: args.profile,
-        user_id: args.user_id
-      });
+    createGame: async (parent, args, context) => {
+      if (context.user){
+        const user = await User.findByIdAndUpdate(
+          {_id: context.user._id},
+          {$push: {games: args}},
+          {new: true}
+        );
+
+        return user;
+      }
+      throw new AuthenticationError('not logged in');
+      
     },
     // update an existing game under a specific user
     updateGame: async (parent, args) => {

@@ -2,6 +2,7 @@ const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 //const {Game} = require("./game");
 const bindingScheme = require("./bindings");
+const GameSchema =  require('./game')
 
 const UserSchema = new Schema(
   {
@@ -15,9 +16,7 @@ const UserSchema = new Schema(
         type: String,
         required: true,
     },
-    games: {
-      type: [],
-    },
+    games: [GameSchema],
     keyBinds: [bindingScheme]    
   },
   {
@@ -42,4 +41,4 @@ UserSchema.pre('save', async function (next) {
 
 const User = model("User", UserSchema);
 
-module.exports = {User};
+module.exports = User;
