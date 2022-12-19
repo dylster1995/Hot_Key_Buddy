@@ -14,9 +14,9 @@ header {
     font-size: 60px;
     font-family: cursive;
 }
-body {
-    background-color: grey;
-}
+/* body {
+    background-color: rgb(8, 7, 7);
+} */
 
 .title {
     border-color: red;
@@ -44,11 +44,10 @@ body {
 }
 
 .home-screen {
-    border-color:blue;
-    border-width: 2rem;
+    justify-content: center;
+    height: 400px;
+    width: 600px;
     font-size: 60px;
-    background-color:white;
-    border-style: groove;
     margin-bottom: 10px;
 }
 

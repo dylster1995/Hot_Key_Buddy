@@ -22,6 +22,17 @@ const typeDefs = gql`
     keyBind: String!
     binding: String!
   }
+
+  type Auth {
+    token: ID!
+    user: User
+  }
+
+  input  {
+
+
+  }
+
   type Query {
     readUser(_id: ID!): User
     readUsers: [User]

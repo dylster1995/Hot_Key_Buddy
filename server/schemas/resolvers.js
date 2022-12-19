@@ -39,6 +39,11 @@ const resolvers = {
       }
     }
   },
+  //may need to add const user and const token to create in db
+  //write a login function to findone by email
+  //const correct pw to match in user with it's valitdation
+  //const token
+
   Mutation: {
     // create a new user
     createUser: async (parent, args) => {

@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import { useQuery } from "@apollo/client";
+// import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import "../styles/Keyboard.css"
 
