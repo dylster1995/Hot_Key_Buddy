@@ -70,7 +70,7 @@ By using Sequelize ORM, we were able to consistently store data such as drawings
 
 [Andy Liu](https://github.com/Tojomojo)
 
-[Mimi Sanguinetti]
+
 
 
 ## Submission -TBD
