@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink, } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Login from './components/Login';
@@ -8,7 +8,9 @@ import Home from './components/Home';
 import Keyboard from './components/Keyboard';
 import Footer from './components/Footer';
 import Signup from './components/Signup';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import User from './components/User';
+import Logout from './components/Logout';
+import Dashboard from './components/Dashboard';
 
 
 // Construct our main GraphQL API endpoint
@@ -43,8 +45,12 @@ function App() {
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Dashboard />} />
             <Route path="/keyboard" element={<Keyboard />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/:id" element={<User />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/" element={<Home />} />
           </Routes>
           <Footer />
         </>

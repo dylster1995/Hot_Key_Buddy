@@ -1,10 +1,13 @@
 import { gql } from '@apollo/client';
 
-export const CREATE_USER = gql`
-  mutation makeUser($username: String!, $email: String!, $password: String!) {
-    createUser(username: $username, email: $email, password: $password) {
-      username
-      email
+export const ADD_USER = gql`
+  mutation makeUser($email: String!, $password: String!) {
+    createUser(email: $email, password: $password) {
+      token
+      user {
+        _id
+        email
+      }
     }
   }
 `;
@@ -20,9 +23,8 @@ export const CREATE_GAME = gql`
 `;
 
 export const UPDATE_USER = gql`
-  mutation changeUser($username: String!, $email: String!, $password: String!, $id: ID!){
-    updateUser(username: $username, email: $email, password: $password, _id: $id) {
-      username
+  mutation changeUser($email: String!, $password: String!, $id: ID!){
+    updateUser(email: $email, password: $password, _id: $id) {
       email
     }
   }
@@ -41,7 +43,6 @@ export const DELETE_USER = gql`
 mutation removeUser($id: ID!){
   deleteUser(_id: $id) {
     _id
-    username
     email
   }
 }
@@ -58,11 +59,13 @@ mutation removeGame($id: ID!){
 `;
 
 export const LOGIN_USER = gql`
-mutation getUser($id: ID!){
-  readUser(_id: $id) {
-    _id
-    username
-    email
+mutation login($email: String!, $password: String!){
+  login(email: $email, password: $password){
+    token
+    user {
+      _id
+      email
+    }
   }
 }
 `;

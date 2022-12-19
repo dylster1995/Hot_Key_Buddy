@@ -3,17 +3,17 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../styles/Login.css"
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import { UPDATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import {Alert} from 'react-bootstrap';
 
-const Login = () => {
+const User = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [userData, setUserData] = useState({email: '', password: ''});
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [updateUser, { error }] = useMutation(UPDATE_USER);
 
   useEffect(() => {
     if (error) {
@@ -38,12 +38,12 @@ const Login = () => {
     }
 
     try {
-      const { data } = await login({
+      const { data } = await updateUser({
         variables: { ...userFormData },
       });
 
       console.log(data);
-      Auth.login(data.login.token, data.login.user._id);
+      Auth.login(data.updateUser.token, data.updateUser._id);
     } catch (e) {
       console.error(e);
     }
@@ -58,19 +58,8 @@ const Login = () => {
   return (
     <>
     <div className="login-form">
+        <h1>User Settings</h1>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-<<<<<<< HEAD
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label htmlFor="email">Email address</Form.Label>
-        <Form.Control  
-            type="text"
-            placeholder="Your email"
-            name="email"
-            onChange={handleInputChange}
-            value={userData.email}
-            required />
-        {/* <Form.Text className="text-muted">
-=======
       <Alert
           dismissible
           onClose={() => setShowAlert(false)}
@@ -83,56 +72,39 @@ const Login = () => {
         <Form.Label>Email address</Form.Label>
         <Form.Control 
           type="text"
-          placeholder="Enter email"
+          placeholder="Email"
           name="email"
           onChange={handleInputChange}
           value={userFormData.email}
           required
         />
         <Form.Text className="text-muted">
->>>>>>> 6991110bc5a2355e2d19e5e235acb787214304be
           We'll never share your email with anyone else.
-        </Form.Text> */}
+        </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-<<<<<<< HEAD
-        <Form.Label htmlFor="password">Password</Form.Label>
-        <Form.Control   
-=======
         <Form.Label>Password</Form.Label>
         <Form.Control
->>>>>>> 6991110bc5a2355e2d19e5e235acb787214304be
             type="password"
             placeholder="Your password"
             name="password"
             onChange={handleInputChange}
-<<<<<<< HEAD
-            value={userData.password}
-            required/>
-=======
             value={userFormData.password}
             required
           />
->>>>>>> 6991110bc5a2355e2d19e5e235acb787214304be
       </Form.Group>
-      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        {/* <Form.Check type="checkbox" label="Check me out" /> */}
-      {/* </Form.Group> */} 
-      <Form.Control.Feedback type="invalid">
-            Password is required!
-          </Form.Control.Feedback>
-      <Button  
-      disabled={!(userData.email && userData.password)}
-        variant="info" type="submit">
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+      <Button variant="info" type="submit">
         Submit
       </Button>
       <br></br>
-      <p>Not a member?<br></br> <a href="/signup">Sign Up!</a></p>
     </Form>
     </div>
     </>
   );
 };
 
-export default Login;
+export default User;
