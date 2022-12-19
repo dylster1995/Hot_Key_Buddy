@@ -3,7 +3,7 @@ BootCamp Project #3 - Hot Key Binding
 
 ## INTRODUCTION
 
-write intro
+Have you ever been in a situation where you need to travel to a different place to 
 
 ![](insert image)
 
@@ -14,16 +14,13 @@ You can start today by creating an account on our deployed website [here](insert
 ### TO RUN LOCALLY - to be updated
 1. Clone/download the code in this repo
 2. Navigate to the location of the code downloaded in your terminal
-3. Rename ".env.EXAMPLE" to ".env"
-4. Input your mySQL password in .env
-5. Run query found in db/schema.sql in your mySQL shell
-6. Run the following command in your terminal (make sure you're in the root directory of the application)
+3. Run the following command in your terminal (make sure you're in the root directory of the application)
 ```git
-npm i && npm start
+npm run install && npm run develop
 ```
-7. Navigate to localhost:3001 in your browser 
+4. Navigate to localhost:3001 in your browser 
 
-## TECHNOLOGY
+## TECHNOLOGY-TBD
 ### MySQL
 
 Our server uses mySQL database to store users' confidential credentials, drawings, and comments. The following schema is used to show how each model references one another.
@@ -65,21 +62,23 @@ By using Sequelize ORM, we were able to consistently store data such as drawings
 
 ![](/asset/network.png)
 
-## COLLABORATORS -TBD
+## COLLABORATORS 
 
-[Brandon Villasenor](https://github.com/Nodnarbrones)
+[Jose Antonio Garcia](https://github.com/jg-watson)
 
-[John Lopez](https://github.com/Think-Again-Coder)
+[Dylan Yamashiro](https://github.com/dylster1995)
 
 [Andy Liu](https://github.com/Tojomojo)
 
-[Tyler Oats](https://github.com/Atlas548)
+[Mimi Sanguinetti]
 
-[Nhan Nguyen](https://github.com/nhanng19)
 
 ## Submission -TBD
 This project was uploaded to GitHub at the following repository link:
-[https://github.com/nhanng19/Draw.me](https://github.com/nhanng19/Draw.me)
+[https://github.com/dylster1995/Hot_Key_Buddy](https://github.com/dylster1995/Hot_Key_Buddy)
+
+Google Slides Presentation
+[https://docs.google.com/presentation/d/1r44ax1z9rzF7axrNjawHP9ZWZxyQ7Kgrzc0--Wk4tKU/edit](https://docs.google.com/presentation/d/1r44ax1z9rzF7axrNjawHP9ZWZxyQ7Kgrzc0--Wk4tKU/edit)
 
 Deployed Web Application Link: TBD
 [https://draw-me.herokuapp.com/](https://draw-me.herokuapp.com/)
