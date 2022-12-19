@@ -57,23 +57,40 @@ const Login = () => {
   return (
     <>
     <div className="login-form">
-      <Form>
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
+        <Form.Label htmlFor="email">Email address</Form.Label>
+        <Form.Control  
+            type="text"
+            placeholder="Your email"
+            name="email"
+            onChange={handleInputChange}
+            value={userData.email}
+            required />
+        {/* <Form.Text className="text-muted">
           We'll never share your email with anyone else.
-        </Form.Text>
+        </Form.Text> */}
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Label htmlFor="password">Password</Form.Label>
+        <Form.Control   
+            type="password"
+            placeholder="Your password"
+            name="password"
+            onChange={handleInputChange}
+            value={userData.password}
+            required/>
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="info" type="submit">
+      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        {/* <Form.Check type="checkbox" label="Check me out" /> */}
+      {/* </Form.Group> */} 
+      <Form.Control.Feedback type="invalid">
+            Password is required!
+          </Form.Control.Feedback>
+      <Button  
+      disabled={!(userData.email && userData.password)}
+        variant="info" type="submit">
         Submit
       </Button>
       <br></br>

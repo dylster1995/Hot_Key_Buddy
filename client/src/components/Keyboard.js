@@ -25,7 +25,7 @@ const Keyboard = () => {
 
   return (
     <>
-      <input className="keyboard" type="text" onKeyDown={detectKeyDown} maxLength={1} value={key} />
+      <input className="input-one" type="text" onKeyDown={detectKeyDown} maxLength={1} value={key} />
       <Button className="save-button" variant="primary" on onClick={saveKey}>
         Save
       </Button>

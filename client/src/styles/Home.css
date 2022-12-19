@@ -1,25 +1,22 @@
 * {
 text-align: center;
 background-color: white;
-margin-right: 60px;
-margin-left: 60px;
+margin-right: 70px;
+margin-left: 70px;
 }
 
 h2, p {
-    background-color: white;
+    background-color: rgb(42, 144, 227);
+    padding: 2%
 }
 
 header {
-    background-color: white;
+    background-color: rgb(42, 144, 227);
     font-size: 60px;
     font-family: cursive;
 }
-/* body {
-    background-color: rgb(8, 7, 7);
-} */
 
 .title {
-    border-color: red;
     border-width: 2rem;
     padding: 20px;
     background-color: white;
@@ -28,7 +25,6 @@ header {
 }
 
 .text {
-    border-color: green;
     border-width: 2rem;
     background-color: white;
     padding: 10px;
@@ -37,22 +33,106 @@ header {
     margin-bottom: 10px;
 }
 
-#image {
-    height: 300px;
-    width: 800px;;
-
-}
-
-.home-screen {
-    justify-content: center;
+/* #gamer {
     height: 400px;
-    width: 600px;
-    font-size: 60px;
-    margin-bottom: 10px;
+    width: 900px;;
+    margin-bottom: 2%
 }
+
+#keyboard {
+    height: 400px;
+    width: 900px;;
+    margin-bottom: 2%
+}
+
+#over {
+    height: 400px;
+    width: 900px;
+    margin-bottom: 2%
+} */
+/* 
+.home-screen {
+  
+    height: 400px !important;
+    width: 900px !important;
+    margin-bottom: 15px;
+} */
 
 .nav-container {
     text-align: right;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+@media screen and (min-width: 576px){
+    .input-one{
+        border-color:red;
+    }
+    .keyboard{
+        border-color:red;
+    }
+   }
+   .title{
+    border-color:red;
+   }
+    .text {
+        border-color:red;
+    }
+    .screen{
+        border-color:red;
+    }
+
+
+@media screen and (min-width: 768px){
+    .input-one{
+        border-color:blue;
+    }
+    .keyboard{
+        border-color:blue;
+    }
+    .title{
+        border-color:blue;
+    }
+    .text{
+        border-color:blue;
+    }
+    .screen{
+        border-color:blue;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .input-one{
+        border-color:green;
+    }
+    .keyboard{
+        border-color:green;
+    }
+    .title{
+        border-color:green;
+    }
+    .text{
+        border-color:green;
+    }
+    .screen{
+        border-color:green;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .input-one{
+        border-color:rgb(15, 91, 117);
+    }
+    .keyboard{
+        border-color: rgb(15, 91, 117);
+    }
+    .title{
+        border-color:rgb(15, 91, 117);
+    }
+    .text{
+        border-color:rgb(15, 91, 117);
+    }
+    .screen{
+        border-color:rgb(15, 91, 117);
+    }
 }
