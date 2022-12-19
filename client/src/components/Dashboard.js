@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <>
     <div>
-      {/* <Games /> */}
+      <Games />
       <h1>Dashboard</h1>
     </div>
     </>

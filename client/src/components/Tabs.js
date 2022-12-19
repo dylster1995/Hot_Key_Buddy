@@ -17,7 +17,7 @@ return(
           { Auth.loggedIn() ? (
             <span>
             <Nav.Link href="/keyboard">Stored Keys</Nav.Link>
-            <Nav.Link href={'/' + localStorage.getItem('id')}>User Settings</Nav.Link>
+            <Nav.Link href='/user-settings'>User Settings</Nav.Link>
             <Nav.Link href="/logout">Logout</Nav.Link>
             <Nav.Link href="/dashboard">Dashboard</Nav.Link>
             </span>

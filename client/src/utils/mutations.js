@@ -13,13 +13,22 @@ export const ADD_USER = gql`
 `;
 
 export const CREATE_GAME = gql`
-  mutation makeGame($title: String!, $profile: String!, $user_id: ID!){
-    createGame(title: $title, profile: $profile, user_id: $user_id){
-      title
+mutation CreateGame($title: String!, $profile: String!) {
+  createGame(title: $title, profile: $profile) {
+    _id
+    email
+    games {
+      _id
       profile
-      user_id
+      title
+    }
+    keyBinds {
+      _id
+      binding
+      keyBind
     }
   }
+}
 `;
 
 export const UPDATE_USER = gql`

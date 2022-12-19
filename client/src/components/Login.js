@@ -43,7 +43,9 @@ const Login = () => {
       });
 
       console.log(data);
-      Auth.login(data.login.token, data.login.user._id);
+
+      Auth.login(data.login.token);
+      
     } catch (e) {
       console.error(e);
     }
@@ -79,7 +81,7 @@ const Login = () => {
         />
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
-        </Form.Text> */
+        </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -100,7 +102,7 @@ const Login = () => {
             Password is required!
           </Form.Control.Feedback>
       <Button  
-      disabled={!(userData.email && userData.password)}
+        disabled={!(userFormData.email && userFormData.password)}
         variant="info" type="submit">
         Submit
       </Button>
