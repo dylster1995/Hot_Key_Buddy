@@ -7,9 +7,9 @@ Have you ever been in a situation where you need to travel but still wish to pla
 
 ## INSTALLATION
 
-You can start today by creating an account on our deployed website [here](insert link).
+You can start today by creating an account on our deployed website [https://agile-dawn-38601.herokuapp.com/](https://agile-dawn-38601.herokuapp.com/).
 
-### TO RUN LOCALLY - to be updated
+### TO RUN LOCALLY 
 1. Clone/download this repo
 2. Navigate to the location of the code downloaded in your terminal
 3. install any neccessary dependencies for this rop
@@ -28,7 +28,7 @@ Bootstrap makes it quicker to write and maintain the code of our application. By
 ### Mongoose and Express
 We used Mongoose and Express for this project. Our social network service is entirely built on this stack to retrieve, store, and render data back to our client.
 
-![](/asset/network.png)
+
 
 ## COLLABORATORS 
 
