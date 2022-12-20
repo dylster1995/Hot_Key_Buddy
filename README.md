@@ -41,7 +41,7 @@ We used Mongoose and Express for this project. Our social network service is ent
 
 
 
-## Submission -TBD
+## Submission 
 This project was uploaded to GitHub at the following repository link:
 [https://github.com/dylster1995/Hot_Key_Buddy](https://github.com/dylster1995/Hot_Key_Buddy)
 
