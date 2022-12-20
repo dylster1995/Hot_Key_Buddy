@@ -17,7 +17,7 @@ You can start today by creating an account on our deployed website [https://agil
 ```git
 npm run install && npm run develop
 ```
-4. Navigate to localhost:3001 in your browser 
+4. Navigate to localhost:3000 in your browser 
 
 ## TECHNOLOGY
 
