@@ -83,16 +83,23 @@ const resolvers = {
       
     },
     // update an existing game under a specific user
-    updateGame: async (parent, args) => {
+    updateGame: async (parent, args, context) => {
+      if (context.user){
       return await Game.updateOne({ _id: args._id },
       {
         title: args.title,
         profile: args.profile,
       });
+    }
     },
     // delete an existing game 
-    deleteGame: async (parent, args) => {
-      return await Game.findOneAndDelete({ _id: args._id })
+    deleteGame: async (parent, args, context) => {
+      if (context.user){
+      return await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $pull: { games: args._id }},
+        { new: true })
+      }
     },
     createBind: async (parent, args) => {
       return bindingScheme.create({
