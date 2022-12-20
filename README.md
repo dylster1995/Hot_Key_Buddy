@@ -3,18 +3,17 @@ BootCamp Project #3 - Hot Key Binding
 
 ## INTRODUCTION
 
-Have you ever been in a situation where you need to travel to a different place to 
-
-![](insert image)
+Have you ever been in a situation where you need to travel but still wish to play a game without rebinding all of your hot keys? This application is created specifically so you can save all of your current settings in a game and transfer those savings to another device!
 
 ## INSTALLATION
 
 You can start today by creating an account on our deployed website [here](insert link).
 
 ### TO RUN LOCALLY - to be updated
-1. Clone/download the code in this repo
+1. Clone/download this repo
 2. Navigate to the location of the code downloaded in your terminal
-3. Run the following command in your terminal (make sure you're in the root directory of the application)
+3. install any neccessary dependencies for this rop
+4. Run the following command in your terminal (make sure you're in the root directory of the application)
 ```git
 npm run install && npm run develop
 ```
